@@ -1,0 +1,5 @@
+jobsearch/logs
+jobsearch/venv
+logs
+config.json
+.vscode

@@ -6,7 +6,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 formatter = logging.Formatter('%(asctime)s [%(levelname)s] %(module)s: %(message)s',
-                                  datefmt='%m/%d/%Y %H:%M:%S'   )        
+                                  datefmt='%m/%d/%Y %H:%M:%S')        
 fh = logging.FileHandler('jobsearch/jobsearch/logs/jobsearch.log')
 fh.setFormatter(formatter)
 logger.addHandler(fh)

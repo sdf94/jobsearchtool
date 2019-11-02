@@ -1,7 +1,7 @@
 import logging
 import argparse
 import os
-from time import time
+import time
 from jobsearch.jobsearch.jobboard import pull_data
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -25,15 +25,18 @@ logger.setLevel(logging.INFO)
 logger.info("The original code came from: https://github.com/msalmon00/Portfolio/blob/master/Indeed-Job-Scraper-Analysis-and-Salary-Predictions.ipynb")
 
 def main():
+    import pandas as pd
+    import time
     keywords = 'data%20python'
     cities = 'USA'
     jobboards= 'All'
-    pages = 1
+    pages = 10
     logger.info('Keywords are %s',keywords)
     logger.info('Cities are %s',cities)
     logger.info('Pages value is %s',pages)
     logger.info('Jobboards to search are %s',jobboards)
-    print(pull_data(keywords,cities,jobboards,pages))
-    
+    final_results = pull_data(keywords,cities,jobboards,pages)
+    pd.DataFrame.to_csv(final_results,"/Users/SarahsAdventure/Desktop/jobdata/filename_" + time.strftime('%Y-%m-%d') + ".csv",',')
+
 if __name__ == '__main__':
     main()
